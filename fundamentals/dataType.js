@@ -38,6 +38,4 @@ console.log(`dataTwo ${typeof dataTwo} => "${dataTwo}"`);
 const myName = "I am Jubayer.";
 const profession = "I am a Frontend Developer.";
 const comment = "I Love JavaScript.";
-const bio = myName + profession + comment;
-
-console.log(bio);
+const bio = myName + profession + comment; // I am Jubayer.I am a Frontend Developer.I Love JavaScript.
