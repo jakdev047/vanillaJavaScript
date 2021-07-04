@@ -65,5 +65,3 @@ animals.slice(1, 5); // ["bison", "camel", "duck", "elephant"]
 animals.slice(-2); // ["duck", "elephant"]
 
 animals.slice(2, -1); // ["camel", "duck"]
-
-console.log("months=> ", months);
