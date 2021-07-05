@@ -65,3 +65,51 @@ animals.slice(1, 5); // ["bison", "camel", "duck", "elephant"]
 animals.slice(-2); // ["duck", "elephant"]
 
 animals.slice(2, -1); // ["camel", "duck"]
+
+/* 
+    The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+*/
+const numbers = [20, 1, 2, 3, 4, 5];
+const totalReduce = 50;
+
+const resultDiffReduce = numbers.reduce(
+  (previousValue, currentValue, currentIndex, arr) => {
+    return previousValue - currentValue;
+  }
+); // 20 -1 -2 -3 -4 -5 = 5
+
+const resultRemainingReduce = numbers.reduce(
+  (previousValue, currentValue, currentIndex, arr) =>
+    previousValue - currentValue,
+  totalReduce
+); // 50 - 20 -1 -2 -3 -4 -5 = 15
+
+// remove duplicate from an array
+const mainReduceArray = [1, 1, 3, 4, 4, 3, 5];
+const uniqueReduceArray = mainReduceArray.reduce(
+  (previousValue, currentValue) => {
+    if (previousValue.indexOf(currentValue) === -1) {
+      previousValue.push(currentValue);
+    }
+
+    return previousValue;
+  },
+  []
+); // [1,3,4,5]
+
+/* 
+    1st step
+       [],1 => [].indexOf(1) === -1 {
+           [].push(1);
+       }
+       [1]
+    
+    2nd step
+       [1],1 => [1].indexOf(1) === -1 {
+           // not executed because 1 number exist in array
+       }
+       [1]
+
+*/
+
+console.log({ resultDiffReduce, resultRemainingReduce, uniqueReduceArray });
