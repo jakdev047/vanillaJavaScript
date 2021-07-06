@@ -112,4 +112,21 @@ const uniqueReduceArray = mainReduceArray.reduce(
 
 */
 
-console.log({ resultDiffReduce, resultRemainingReduce, uniqueReduceArray });
+/* 
+    The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
+
+    returns the index of the first element in the array
+    Otherwise, it returns -1
+*/
+
+const arrayFindIndex = [
+  { id: 1, colorName: "red" },
+  { id: 2, colorName: "green" },
+  { id: 3, colorName: "blue" },
+  { id: 4, colorName: "white" },
+];
+function findIndex(array, value) {
+  return array.findIndex((x) => x.colorName === value);
+}
+const greenColorName = findIndex(arrayFindIndex, "green");
+console.log(greenColorName);
