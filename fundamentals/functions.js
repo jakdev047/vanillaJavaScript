@@ -71,7 +71,6 @@ function cc(card) {
 
   return result;
 }
-
 cc(10); // -1 Hold
 cc("J"); // -2 Hold
 cc("Q"); // -3 Hold
