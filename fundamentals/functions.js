@@ -32,3 +32,48 @@ function abTest(a, b) {
 }
 
 abTest(-2, 2); // undefined
+
+// excercise
+var count = 0;
+
+function cc(card) {
+  let result = "";
+  // Only change code below this line
+  switch (card) {
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      count += 1;
+      console.log(count);
+      result = count > 0 ? `${count} Bet` : `${count} Hold`;
+      break;
+
+    case 7:
+    case 8:
+    case 9:
+      count += 0;
+      console.log(count);
+      result = count > 0 ? `${count} Bet` : `${count} Hold`;
+      break;
+
+    case 10:
+    case "J":
+    case "Q":
+    case "K":
+    case "A":
+      count += -1;
+      console.log(count);
+      result = count > 0 ? `${count} Bet` : `${count} Hold`;
+      break;
+  }
+
+  return result;
+}
+
+cc(10); // -1 Hold
+cc("J"); // -2 Hold
+cc("Q"); // -3 Hold
+cc("K"); // -4 Hold
+cc("A"); // -5 Hold
