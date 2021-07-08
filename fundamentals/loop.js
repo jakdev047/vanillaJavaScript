@@ -95,3 +95,19 @@ for (var i = 1; i <= 100; i++) {
     console.log(i);
   }
 }
+
+// excercise 07
+function multiplyAll(arr) {
+  var product = 1;
+  // Only change code below this line
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr[i].length; j++) {
+      product *= arr[i][j];
+      console.log(arr[i][j]); // 1,2,3
+    }
+  }
+  // Only change code above this line
+  return product; // 6
+}
+
+multiplyAll([[1], [2], [3]]);
