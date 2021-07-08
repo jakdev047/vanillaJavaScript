@@ -1,5 +1,5 @@
 // require file
-const Fundamentals = require("./fundamentals");
+require("./fundamentals");
 
 // result
 console.log("App...");
