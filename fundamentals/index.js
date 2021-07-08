@@ -5,3 +5,4 @@ require("./array");
 require("./object");
 require("./conditional");
 require("./loop");
+require("./advanceObject");
