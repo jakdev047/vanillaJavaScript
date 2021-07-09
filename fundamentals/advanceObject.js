@@ -189,3 +189,83 @@ function showProperties(movieData) {
 }
 
 showProperties(movie);
+
+/*
+   Excercise 06
+
+   problem
+
+    A lookUpProfile function that takes name and a property (prop) as arguments has been pre-written for you.
+
+    The function should check if name is an actual contact's firstName and the given property (prop) is a property of that contact.
+
+    If both are true, then return the "value" of that property.
+
+    If name does not correspond to any contacts then return the string No such contact.
+
+    If prop does not correspond to any valid properties of a contact found to match name then return the string No such property.
+
+   test case
+   lookUpProfile("Kristian", "lastName") should return the string Vos
+
+    lookUpProfile("Sherlock", "likes") should return ["Intriguing Cases", "Violin"]
+
+    lookUpProfile("Harry", "likes") should return an array
+
+    lookUpProfile("Bob", "number") should return the string No such contact
+
+    lookUpProfile("Bob", "potato") should return the string No such contact
+
+    lookUpProfile("Akira", "address") should return the string No such property
+*/
+
+const contacts = [
+  {
+    firstName: "Akira",
+    lastName: "Laine",
+    number: "0543236543",
+    likes: ["Pizza", "Coding", "Brownie Points"],
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "0994372684",
+    likes: ["Hogwarts", "Magic", "Hagrid"],
+  },
+  {
+    firstName: "Sherlock",
+    lastName: "Holmes",
+    number: "0487345643",
+    likes: ["Intriguing Cases", "Violin"],
+  },
+  {
+    firstName: "Kristian",
+    lastName: "Vos",
+    number: "unknown",
+    likes: ["JavaScript", "Gaming", "Foxes"],
+  },
+];
+
+function lookUpProfile(name, prop) {
+  let firstNameArray = [];
+  for (let person of contacts) {
+    firstNameArray.push(person.firstName);
+  }
+  for (let item of firstNameArray) {
+    if (item === name) {
+      for (let i = 0; i <= contacts.length; i++) {
+        let element = contacts[i];
+        if (element.firstName === name) {
+          if (element.hasOwnProperty(prop)) {
+            return element[prop];
+          } else {
+            return "No such property";
+          }
+        }
+      }
+    }
+  }
+  return "No such contact";
+}
+
+console.log(lookUpProfile("Bob", "potato"));
