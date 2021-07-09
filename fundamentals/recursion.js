@@ -78,14 +78,12 @@ console.log(countdown(5)); // [3,4,3,2,1]
 function rangeOfNumbers(startNum, endNum) {
   if (startNum === endNum) {
     return [startNum];
-  }
-  else 
+  } else {
     // const countArray = countdown(n - 1);
-    const countArray = [];
-    countArray.push(startNum);
+    const countArray = rangeOfNumbers(startNum, endNum - 1);
+    countArray.push(endNum);
     return countArray;
   }
-  
 }
 
 console.log(rangeOfNumbers(6, 9));
