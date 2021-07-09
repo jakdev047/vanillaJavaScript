@@ -7,3 +7,4 @@ require("./conditional");
 require("./loop");
 require("./advanceObject");
 require("./recursion");
+require("./mathObject");
