@@ -1,3 +1,15 @@
+/* 
+    factory function
+    constructor
+    call bind apply
+    Copy by value  for primitive Value
+    Copy by reference for reference value
+    pass by value for primitive
+    pass by value for reference
+    Prevent Object Mutation
+
+*/
+
 // factory function
 function product(title, price, availability) {
   return {
@@ -59,7 +71,7 @@ a = 20;
 a; // 20
 b; // 10
 
-// Copy by reference
+// Copy by reference for reference value
 
 let obj1 = { value: 10 };
 let obj2 = obj1;
