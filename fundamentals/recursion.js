@@ -39,9 +39,53 @@ console.log(sum(3)); // 6
     sum(0) Execution context
     .
     .
-    .s
+    .
     sum(n-2) Execution context
     sum(n-1) Execution context
     sum(n) Execution context
 
 */
+
+/*
+      [5]   => [].push(5)  =>  [].push(n)
+      [5,4]   => [5].push(4) =>  [n+1].push(n)
+      [5,4,3]    => [5,4].push(3) =>  [n+1].push(n)
+      [5,4,3,2]    => [5,4,3].push(2) =>  [n+1].push(n)
+      [5,4,3,2,1]    => [5,4,3,2].push(1) =>  [n+1].push(n)
+
+*/
+
+function countdown(n) {
+  if (n < 1) {
+    return [];
+  } else {
+    const countArray = countdown(n - 1);
+    countArray.unshift(n);
+    return countArray;
+  }
+}
+
+console.log(countdown(5)); // [3,4,3,2,1]
+
+/*
+  Use Recursion to Create a Range of Numbers
+
+  [].push(6)  => [].push(n)
+  [6,7].push(7)  => [].push(n + 1)
+  [6,7,8].push(8)  => [].push(n+1)
+  
+*/
+function rangeOfNumbers(startNum, endNum) {
+  if (startNum === endNum) {
+    return [startNum];
+  }
+  else 
+    // const countArray = countdown(n - 1);
+    const countArray = [];
+    countArray.push(startNum);
+    return countArray;
+  }
+  
+}
+
+console.log(rangeOfNumbers(6, 9));
