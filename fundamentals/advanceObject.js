@@ -269,3 +269,15 @@ function lookUpProfile(name, prop) {
 }
 
 console.log(lookUpProfile("Bob", "potato"));
+
+// optimize code
+function lookUpProfileOptimize(name, prop) {
+  for (let i = 0; i < contacts.length; i++) {
+    if (contacts[i].firstName === name) {
+      return contacts[i][prop] || "No such property";
+    }
+  }
+  return "No such contact";
+}
+
+console.log(lookUpProfileOptimize("Bob", "potato"));
