@@ -8,3 +8,4 @@ require("./loop");
 require("./advanceObject");
 require("./recursion");
 require("./mathObject");
+require("./moreArray");
