@@ -9,3 +9,4 @@ require("./advanceObject");
 require("./recursion");
 require("./mathObject");
 require("./moreArray");
+require("./moreFunctions");
