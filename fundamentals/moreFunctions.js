@@ -9,7 +9,7 @@ const arr = [0, null, undefined, "", 2, 3];
 function countTruthy(arr) {
   let newArray = [];
   for (let i = 0; i < arr.length; i++) {
-    if (Boolean(arr[i])) {
+    if (arr[i]) {
       newArray.push(arr[i]);
     }
   }
@@ -33,7 +33,7 @@ function sum(arr) {
     let newArray = [];
     let total = 0;
     for (let i = 0; i < arr.length; i++) {
-      if (Boolean(arr[i]) && typeof arr[i] === "number") {
+      if (arr[i] && typeof arr[i] === "number") {
         newArray.push(arr[i]);
       }
     }
