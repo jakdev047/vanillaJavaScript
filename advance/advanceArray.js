@@ -110,3 +110,68 @@ function copyMachine(arr, num) {
 }
 
 console.log(copyMachine(["it works"], 2));
+
+/*
+
+  filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3) should return []
+
+*/
+
+function filteredArray(arr, elem) {
+  let newArr = [];
+  // Only change code below this line
+  for (let i = 0; i < arr.length; i++) {
+    let arrItem = arr[i];
+    let isElement = arrItem.includes(elem);
+    if (!isElement) {
+      newArr.push(arrItem);
+    }
+  }
+  // Only change code above this line
+  return newArr;
+}
+
+console.log(
+  filteredArray(
+    [
+      [3, 2, 3],
+      [1, 6, 3],
+    ],
+    3
+  )
+);
+
+/*
+  The function countOnline should return 1 when the object { Alan: { online: false }, Jeff: { online: true }, Sarah: { online: false } } is passed to it
+
+  The function countOnline should return 2 when the object { Alan: { online: true }, Jeff: { online: false }, Sarah: { online: true } } is passed to it
+
+  Passed
+  The function countOnline should return 0 when the object { Alan: { online: false }, Jeff: { online: false }, Sarah: { online: false } } is passed to it
+*/
+
+let users = {
+  Alan: {
+    online: false,
+  },
+  Jeff: {
+    online: true,
+  },
+  Sarah: {
+    online: false,
+  },
+};
+
+function countOnline(usersObj) {
+  // Only change code below this line
+  let result = 0;
+  for (let user in usersObj) {
+    if (usersObj[user].online === true) {
+      result++;
+    }
+  }
+  return result;
+  // Only change code above this line
+}
+
+console.log(countOnline(users));
