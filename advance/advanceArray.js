@@ -175,3 +175,68 @@ function countOnline(usersObj) {
 }
 
 console.log(countOnline(users));
+
+/*
+  largestOfFour([[13, 27, 18, 26], [4, 5, 1, 3], [32, 35, 37, 39], [1000, 1001, 857, 1]]) should return [27, 5, 39, 1001]
+*/
+function largestOfFour(arr) {
+  let newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    let element = arr[i];
+    let max = element.reduce((a, b) => Math.max(a, b));
+    newArray.push(max);
+  }
+  return newArray;
+}
+
+console.log(
+  largestOfFour([
+    [4, 5, 1, 3],
+    [13, 27, 18, 26],
+    [32, 35, 37, 39],
+    [1000, 1001, 857, 1],
+  ])
+);
+
+/*
+  Confirm the Ending
+  Check if a string (first argument, str) ends with the given target string (second argument, target).
+
+  This challenge can be solved with the .endsWith() method, which was introduced in ES2015. But for the purpose of this challenge, we would like you to use one of the JavaScript substring methods instead.
+
+  confirmEnding("Abstraction", "action") should return true.
+*/
+const str = "substr";
+console.log(str.substr(1, 2)); // (1, 2): ub
+console.log(str.substr(-3)); // (-3): str
+
+/* 
+  Truncate a String
+
+  truncateString("A-tisket a-tasket A green and yellow basket", 8) should return the string A-tisket...
+
+*/
+
+function truncateString(str, num) {
+  return str.length > num ? str.slice(0, num) + "..." : str;
+}
+
+console.log(truncateString("A-tisket a-tasket A green", 8));
+
+/*
+  findElement([1, 3, 5, 8, 9, 10], function(num) { return num % 2 === 0; }) should return 8.
+
+  findElement([1, 3, 5, 9], function(num) { return num % 2 === 0; }) should return undefined.
+*/
+function findElement(arr, func) {
+  let num = 0;
+  for (let i = 1; i <= arr.length; i++) {
+    num = arr[i];
+    if (func(num)) {
+      return num;
+    }
+  }
+  return undefined;
+}
+
+console.log(findElement([1, 2, 3, 4], (num) => num % 2 === 0));
