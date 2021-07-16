@@ -1,4 +1,32 @@
 /*
+    arrayFromRange(1, 5) // [1,2,3,4,5]
+    includes(numbers, 4) // true
+    except(numbers, [1, 2]) // [3,4,5]
+
+    The second occurrence of 12 is removed, and we add 13 and 14 at the same index. The numbers array would now be [ 10, 11, 12, 13, 14, 15 ].
+
+    copyMachine([true, false, true], 2) should return [[true, false, true], [true, false, true]]
+
+    filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3) should return []
+
+    The function countOnline should return 1 when the object { Alan: { online: false }, Jeff: { online: true }, Sarah: { online: false } } is passed to it
+
+    largestOfFour([[13, 27, 18, 26], [4, 5, 1, 3], [32, 35, 37, 39], [1000, 1001, 857, 1]]) should return [27, 5, 39, 1001]
+
+    confirmEnding("Abstraction", "action") should return true.
+
+    Truncate a String
+
+    findElement([1, 3, 5, 8, 9, 10], function(num) { return num % 2 === 0; }) should return 8.
+
+    Slice and Splice
+    frankenSplice(["claw", "tentacle"], ["head", "shoulders", "knees", "toes"], 2) should return ["head", "shoulders", "claw", "tentacle", "knees", "toes"].
+
+    getIndexToIns([1,2,3,4], 1.5) should return 1 because it is greater than 1 (index 0), but less than 2 (index 1).
+
+*/
+
+/*
     Exercise 01
 
     must result a array including all elements in the defined range
@@ -240,3 +268,54 @@ function findElement(arr, func) {
 }
 
 console.log(findElement([1, 2, 3, 4], (num) => num % 2 === 0));
+
+/*
+  Slice and Splice
+  You are given two arrays and an index.
+  Copy each element of the first array into the second array, in order.
+
+  Begin inserting elements at index n of the second array.
+
+  Return the resulting array. The input arrays should remain the same after the function runs.
+
+  frankenSplice(["claw", "tentacle"], ["head", "shoulders", "knees", "toes"], 2) should return ["head", "shoulders", "claw", "tentacle", "knees", "toes"].
+
+*/
+
+function frankenSplice(arr1, arr2, n) {
+  let newArr2 = [...arr2];
+
+  let arrModify2 = newArr2.splice(n);
+
+  let newArray = [...newArr2, ...arr1, ...arrModify2];
+
+  return newArray;
+}
+
+console.log(frankenSplice([1, 2, 3], [4, 5, 6], 2));
+
+/*
+  getIndexToIns([1,2,3,4], 1.5) should return 1 because it is greater than 1 (index 0), but less than 2 (index 1).
+*/
+function getIndexToIns(arr, num) {
+  if (arr.length > 0) {
+    let getIndex = 0;
+    let newSortedArr = arr.sort((a, b) => {
+      return a - b;
+    });
+
+    for (let i = 0; i < newSortedArr.length; i++) {
+      if (newSortedArr[i] >= num) {
+        getIndex = i;
+        break;
+      } else {
+        getIndex = newSortedArr.length;
+      }
+    }
+    return getIndex;
+  } else {
+    return 0;
+  }
+}
+
+console.log(getIndexToIns([2, 5, 10], 15));
