@@ -313,3 +313,12 @@ console.log(obj);
 /*
   The obj.review and obj.newProp assignments will result in errors, and the console will display the value { name: "FreeCodeCamp", review: "Awesome" }.
 */
+
+
+class MyClass extends (String,Array) {
+  construct() {}
+}
+
+const testResult = new MyClass();
+
+console.log(testResult instanceof Array)

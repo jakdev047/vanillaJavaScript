@@ -76,3 +76,20 @@ cc("J"); // -2 Hold
 cc("Q"); // -3 Hold
 cc("K"); // -4 Hold
 cc("A"); // -5 Hold
+
+
+// Excersise 02
+
+const circle = {
+  radius: 10,
+  area(){
+    console.log(this)
+    return Math.round(Math.PI * this.radius * this.radius);
+  },
+  perimeter: () => {
+    console.log(this)
+    return Math.round(2 * Math.PI * this.radius);
+  }
+}
+
+console.log(circle.area(),circle.perimeter())
