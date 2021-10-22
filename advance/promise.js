@@ -16,3 +16,25 @@ makeServerRequest
   .catch((error) => {
     console.log(error); // Data not received
   });
+
+
+function run() {
+  // promise define 
+  const promise = new Promise(resolve=>{
+    resolve('Promise Resolve');
+  })
+
+  setTimeout(() => {
+    console.log("Set Time Out")
+  });
+
+  // promise call
+  promise.then((res)=> {
+    console.log(res)
+  });
+
+  console.log("Log")
+}
+
+
+run();

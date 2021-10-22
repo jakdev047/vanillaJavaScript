@@ -101,6 +101,8 @@
 
     Remove Whitespace from Start and End
 
+    Remove empty lines of a text document in JavaScript
+
 
 */
 
@@ -328,3 +330,23 @@ console.log(userCheck.test(username));
 */
 
 // console.log(result);
+
+/*  
+    Remove empty lines of a text document in JavaScript
+        split(/\r\n/) =>  ['Red Green Blue']
+
+*/
+
+const removeEmptyLines = (str) => {
+  return str.split(/\r\n/).filter(line => line.trim() !== '').join('');
+};
+
+console.log(removeEmptyLines(`
+
+    Red   
+
+    Green  
+
+
+    Blue`)
+);
