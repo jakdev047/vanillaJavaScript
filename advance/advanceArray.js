@@ -319,3 +319,52 @@ function getIndexToIns(arr, num) {
 }
 
 console.log(getIndexToIns([2, 5, 10], 15));
+
+/*
+  ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
+
+  The arguments ["hello", "hey"] should return false because the string hello does not contain a y.
+
+  Lastly, ["Alien", "line"], should return true because all of the letters in line are present in Alien.
+*/
+
+function mutation(arr) {
+  let a = arr[0].toLowerCase().split("");
+  let b = arr[1].toLowerCase().split("");
+
+  let isFalse = [];
+
+  for (let i = 0; i < b.length; i++) {
+    isFalse.push(a.findIndex((item) => item === b[i]));
+  }
+
+  let isMatch = isFalse.every((item) => item >= 0);
+
+  if (isMatch) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(mutation(["floor", "for"]));
+
+/*
+  chunkArrayInGroups(["a", "b", "c", "d"], 2) should return [["a", "b"], ["c", "d"]]
+*/
+
+function chunkArrayInGroups(arr, size) {
+  let newArray = [...arr];
+  let a = newArray.splice(0, size);
+
+  for (let item of arr) {
+    console.log(item);
+  }
+
+  console.log(a);
+  console.log(newArray);
+  console.log(arr);
+  return arr;
+}
+
+console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
