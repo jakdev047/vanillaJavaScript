@@ -93,4 +93,33 @@ enroll()
     .then(getCertificate)
     .then(value=> console.log(value))
     .catch(err => console.log(err))
-    
+
+// Excercise 02 ( promise )
+
+const executed = true;
+
+const aPromise = new Promise((resolve, reject) =>{
+  setTimeout(() =>{
+    if(executed) {
+      resolve("A");
+    }
+    else {
+      reject("Not");
+    }
+  },2000);
+});
+
+const bPromise = new Promise((resolve, reject) =>{
+  setTimeout(() =>{
+    if(executed) {
+      resolve("B");
+    }
+    else {
+      reject("Not");
+    }
+  },2000);
+});
+
+Promise.all([aPromise,bPromise]).then((res) => {
+  console.log(res);
+}).catch(err=> console.log(err))
