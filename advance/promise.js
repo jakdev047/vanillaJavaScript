@@ -93,6 +93,4 @@ enroll()
     .then(getCertificate)
     .then(value=> console.log(value))
     .catch(err => console.log(err))
-
-
-// Excercise 02 ( async await )
+    
