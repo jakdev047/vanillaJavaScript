@@ -37,7 +37,7 @@ function run() {
 
 run();
 
-// Excercise 01
+// Excercise 01 ( promise )
 const paymentSuccss = true;
 const marks = 90;
 
@@ -93,3 +93,6 @@ enroll()
     .then(getCertificate)
     .then(value=> console.log(value))
     .catch(err => console.log(err))
+
+
+// Excercise 02 ( async await )
