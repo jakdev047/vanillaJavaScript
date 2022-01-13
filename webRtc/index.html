@@ -50,16 +50,14 @@
       navigator.mediaDevices
         .enumerateDevices()
         .then((devices) => {
-          devices.filter(device => {
-            if(device.kind === "videoinput") {
-              alert("Camera Found")
+          devices.filter((device) => {
+            if (device.kind === "videoinput") {
+              alert("Camera Found");
+            } else {
+              alert("Audio Found");
+              console.log("devices", devices);
             }
-            else {
-              alert("Audio Found")
-              console.log("devices",devices)
-            }
-          })
-          
+          });
         })
         .catch((error) => {
           console.log(error);
