@@ -15,7 +15,23 @@
     <script>
         let constraints = {video: true, audio: true};
 
-        navigator.mediaDevices.getUserMedia(constraints)
+        /*
+          camera capture
+          ==================
+          navigator.mediaDevices.getUserMedia(constraints)
+          .then(stream => {
+              let video = document.querySelector('video');
+              video.srcObject = stream;
+              video.play();
+          })
+          .catch(error=>{
+              console.log(error)
+          }) 
+        */
+
+        //  share screen
+
+        navigator.mediaDevices.getDisplayMedia(constraints)
         .then(stream => {
             let video = document.querySelector('video');
             video.srcObject = stream;
@@ -23,7 +39,7 @@
         })
         .catch(error=>{
             console.log(error)
-        }) 
+        })
     </script>
   </body>
 </html>
