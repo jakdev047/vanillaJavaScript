@@ -9,13 +9,17 @@
   <body>
     <h2>Web RTC</h2>
 
+    <video></video>
+
     <!-- src -->
     <script>
         let constraints = {video: true, audio: true};
 
         navigator.mediaDevices.getUserMedia(constraints)
         .then(stream => {
-            console.log(stream)
+            let video = document.querySelector('video');
+            video.srcObject = stream;
+            video.play();
         })
         .catch(error=>{
             console.log(error)
