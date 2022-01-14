@@ -14,6 +14,7 @@
 
 <body>
 
+   <!-- connection section -->
    <div class="container">
       <h2 id="selfPeerID"></h2>
       <p id="connectionStatus" class="text-primary">Connection Status: </p>
@@ -23,6 +24,23 @@
          </div>
          <div class="col-2">
             <button id="connectionBtn" class="btn btn-primary">Connect</button>
+         </div>
+      </div>
+   </div>
+
+   <!-- Chatting section -->
+   <div class="container py-1 bg-light">
+      <div class="row my-5">
+         <div class="col-12">
+            <h4>
+               Message From Jubayer: <span id="receivedMsg"></span>
+            </h4>
+         </div>
+         <div class="col-4">
+            <input type="text" class="form-control" placeholder="Message" id="message">
+         </div>
+         <div class="col-3">
+            <button id="sendBtn" class="btn btn-primary">Send To Jubayer</button>
          </div>
       </div>
    </div>
@@ -46,8 +64,31 @@
          let peerConnection = peer.connect(partnerPeerID);
          peerConnection.on('open', function () {
             $("#connectionStatus").html(`Connection Status: Yes`);
+            receiveMessageAction();
          });
       });
+
+      //  send message action
+      $('#sendBtn').on('click', function () {
+
+         let msg = $("#message").val();
+         let partnerPeerID = $("#partnerPeerID").val();
+         let peerConnection = peer.connect(partnerPeerID);
+
+         peerConnection.on('open', function () {
+            peerConnection.send(msg);
+         });
+      });
+
+      // receive message action
+      function receiveMessageAction() {
+         peer.on('connection', function (peerConnection) {
+            peerConnection.on('data', function (msg) {
+               $("#receivedMsg").html(msg);
+            });
+         });
+      };
+
    </script>
 
 </body>

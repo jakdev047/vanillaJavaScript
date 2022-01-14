@@ -22,3 +22,37 @@
       });
 
    });
+
+# Understanding String Message Transfer
+==========================================
+
+   // connection action
+   $('#connectionBtn').on('click', function () {
+      let partnerPeerID = $("#partnerPeerID").val();
+      let peerConnection = peer.connect(partnerPeerID);
+      peerConnection.on('open', function () {
+         $("#connectionStatus").html(`Connection Status: Yes`);
+         receiveMessageAction();
+      });
+   });
+
+   //  send message action
+   $('#sendBtn').on('click', function () {
+
+      let msg = $("#message").val();
+      let partnerPeerID = $("#partnerPeerID").val();
+      let peerConnection = peer.connect(partnerPeerID);
+
+      peerConnection.on('open', function () {
+         peerConnection.send(msg);
+      });
+   });
+
+   // receive message action
+   function receiveMessageAction() {
+      peer.on('connection', function (peerConnection) {
+         peerConnection.on('data', function (msg) {
+            $("#receivedMsg").html(msg);
+         });
+      });
+   };
