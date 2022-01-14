@@ -1,0 +1,12 @@
+# Understanding Peer ID
+==========================
+
+   # create a new peer ID
+
+      let peer = new Peer();
+      peer.on('open', function (PeerID) {
+         console.log(PeerID)
+      })
+
+# Understanding Peer Connection
+================================
