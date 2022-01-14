@@ -5,8 +5,20 @@
 
       let peer = new Peer();
       peer.on('open', function (PeerID) {
-         console.log(PeerID)
+         $("#selfPeerID").html(`Jubayer [ ${PeerID} ]`);
       })
 
 # Understanding Peer Connection
 ================================
+
+   $('#connectionBtn').on('click', function () {
+
+      // data capture by input
+      let partnerPeerID = $("#partnerPeerID").val();
+
+      let peerConnection = peer.connect(partnerPeerID);
+      peerConnection.on('open', function () {
+         $("#connectionStatus").html(`Connection Status: Yes`);
+      });
+
+   });
