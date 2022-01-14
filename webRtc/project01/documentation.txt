@@ -56,3 +56,68 @@
          });
       });
    };
+
+
+# Understanding Video Audio Call
+==================================
+
+   // make call action
+   let mediaConstraints = { 'video': true, 'audio': true }
+   $('#makeCall').on('click', function () {
+
+      navigator.mediaDevices.getUserMedia(mediaConstraints)
+         .then(function (stream) {
+
+            // Jubayer Preview
+            let jubayerPreview = document.getElementById('jubayerPreview');
+            jubayerPreview.srcObject = stream;
+            jubayerPreview.play();
+
+
+            //Partner PeerID
+            let partnerPeerID = $('#partnerPeerID').val();
+            let call = peer.call(partnerPeerID, stream);
+
+            call.on('stream', function (remoteStream) {
+               // Self Preview
+               let selfPreview = document.getElementById('selfPreview');
+               selfPreview.srcObject = stream;
+               selfPreview.play();
+
+            })
+         }).catch(function (err) {
+            alert(err)
+         })
+   });
+
+
+   // receive call action
+   let mediaConstraints = { 'video': true, 'audio': true }
+   $('#receiveCall').on('click', function () {
+      peer.on('call', function (call) {
+
+         navigator.mediaDevices.getUserMedia(mediaConstraints)
+            .then(function (stream) {
+
+               // Self Preview
+               let selfPreview = document.getElementById('selfPreview')
+               selfPreview.srcObject = stream;
+               selfPreview.play();
+               call.answer(stream);
+
+
+               call.on('stream', function (remoteStream) {
+                  // Jubayer Preview
+                  let jubayerPreview = document.getElementById('jubayerPreview')
+                  jubayerPreview.srcObject = remoteStream;
+                  jubayerPreview.play();
+               })
+
+            })
+            .catch(function (err) {
+               alert(err)
+            })
+
+
+      })
+   });

@@ -9,6 +9,7 @@
 
    <!-- all css file -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -41,6 +42,21 @@
          </div>
          <div class="col-3">
             <button id="sendBtn" class="btn btn-primary">Send to Self</button>
+         </div>
+      </div>
+   </div>
+
+   <!-- video section -->
+   <div class="container">
+      <div class="row">
+         <div class="col-6 p-2">
+            <video id="jubayerPreview"></video>
+            <h6>Jubayer Preview</h6>
+            <button id="makeCall" class="btn btn-primary">Make Call</button>
+         </div>
+         <div class="col-6 p-2">
+            <video id="selfPreview"></video>
+            <h6>Self Preview</h6>
          </div>
       </div>
    </div>
@@ -88,6 +104,35 @@
             });
          });
       };
+
+      // make call action
+      let mediaConstraints = { 'video': true, 'audio': true }
+      $('#makeCall').on('click', function () {
+
+         navigator.mediaDevices.getUserMedia(mediaConstraints)
+            .then(function (stream) {
+
+               // Jubayer Preview
+               let jubayerPreview = document.getElementById('jubayerPreview');
+               jubayerPreview.srcObject = stream;
+               jubayerPreview.play();
+
+
+               //Partner PeerID
+               let partnerPeerID = $('#partnerPeerID').val();
+               let call = peer.call(partnerPeerID, stream);
+
+               call.on('stream', function (remoteStream) {
+                  // Self Preview
+                  let selfPreview = document.getElementById('selfPreview');
+                  selfPreview.srcObject = stream;
+                  selfPreview.play();
+
+               })
+            }).catch(function (err) {
+               alert(err)
+            })
+      })
 
    </script>
 
