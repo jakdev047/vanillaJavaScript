@@ -368,3 +368,29 @@ function chunkArrayInGroups(arr, size) {
 }
 
 console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+
+const data = [
+  {
+    employmentTypeName: "Permanent",
+    employeeCount: 8,
+  },
+  {
+    employmentTypeName: "Probation",
+    employeeCount: 2,
+  },
+];
+
+const totalEmployees = data?.reduce(
+  (acc, initialValue) => acc + initialValue?.employeeCount,
+  0
+);
+
+const modifyData = data?.map((item) => {
+  return {
+    ...item,
+    percentage: (item?.employeeCount * 100) / totalEmployees,
+  };
+});
+
+console.log("totalEmployees", totalEmployees);
+console.log("modifyData", modifyData);
