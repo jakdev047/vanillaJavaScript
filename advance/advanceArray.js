@@ -392,5 +392,54 @@ const modifyData = data?.map((item) => {
   };
 });
 
-console.log("totalEmployees", totalEmployees);
-console.log("modifyData", modifyData);
+const leaveBalanceHistoryList = [
+  {
+    leaveBalanceId: 4546,
+    leaveTypeId: 2,
+    leaveTypeCode: "",
+    leaveType: "Casual Leave",
+    remainingDays: 986,
+    leaveTakenDays: 14,
+    balanceDays: 1000,
+  },
+  {
+    leaveBalanceId: 4547,
+    leaveTypeId: 4,
+    leaveTypeCode: "SL",
+    leaveType: "Sick Leave",
+    remainingDays: 4,
+    leaveTakenDays: 10,
+    balanceDays: 14,
+  },
+  {
+    leaveBalanceId: 4548,
+    leaveTypeId: 5,
+    leaveTypeCode: "LWP",
+    leaveType: "Leave without Pay",
+    remainingDays: 0,
+    leaveTakenDays: 0,
+    balanceDays: 0,
+  },
+  {
+    leaveBalanceId: 4549,
+    leaveTypeId: 6,
+    leaveTypeCode: "SUS",
+    leaveType: "Suspension",
+    remainingDays: 0,
+    leaveTakenDays: 0,
+    balanceDays: 0,
+  },
+];
+
+const modifyLeaveBalanceHistoryList = leaveBalanceHistoryList?.map((item) => {
+  return {
+    ...item,
+    leaveTakenStatistics: [item?.leaveTakenDays, item?.balanceDays],
+  };
+});
+
+const finalLeaveBalanceHistoryList = modifyLeaveBalanceHistoryList?.map(
+  (item) => item?.leaveTakenStatistics
+);
+
+console.log(finalLeaveBalanceHistoryList);
