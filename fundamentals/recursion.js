@@ -81,9 +81,18 @@ function rangeOfNumbers(startNum, endNum) {
   } else {
     // const countArray = countdown(n - 1);
     const countArray = rangeOfNumbers(startNum, endNum - 1);
+    console.log(countArray);
     countArray.push(endNum);
     return countArray;
   }
 }
+
+/*
+    [6]
+    [6,7]
+    [6,7,8]
+
+
+*/
 
 console.log(rangeOfNumbers(6, 9));
